@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+function generateHTML(data) {
+    return `
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +17,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./dist/style.css"/>
     <title>Document</title>
   </head>
   <body>
@@ -24,6 +26,7 @@
     </header>
     <main class="container">
       <section class="row">
+      ${generateCards(data)}
         <div class="col card" style="width: 18rem">
           <div class="card-body">
             <h5 class="card-title">name</h5>
@@ -42,3 +45,18 @@
     </main>
   </body>
 </html>
+    `
+}
+
+
+
+function generateCards(data) {
+    let card = ''
+    card += 'class="col card" style="width: 18rem"'
+}
+
+
+
+
+
+module.exports = generateHTML;
