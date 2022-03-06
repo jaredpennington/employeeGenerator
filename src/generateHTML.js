@@ -1,3 +1,5 @@
+const { prototype } = require("inquirer/lib/objects/separator");
+
 function generateHTML(data) {
     return `
     <!DOCTYPE html>
@@ -51,8 +53,10 @@ function generateHTML(data) {
 
 
 function generateCards(data) {
-    let card = ''
+    let card = '';
+    for (let i = 0; i < data.length; i++) 
     card += 'class="col card" style="width: 18rem"'
+
 }
 
 
