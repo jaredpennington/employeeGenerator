@@ -13,12 +13,11 @@ var inquirer = require("inquirer");
 var fs = require("fs");
 var generateHTML = require("./src/generateHTML.js");
 const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
 var teamArray = [];
 
 
 inquirer.prompt 
-
-
 
 
 const questions = [
@@ -53,11 +52,11 @@ function start() {
       
       const manager = new Manager(res.Name, res.Id, res.Email, res.officeNumber)
       // push the new employee into team array in order to pass it to generateHtml function
-
+      const engineer = new Engineer(res.Name, res.Id, res.Email, res.Github)
       teamArray.push(manager);
       console.log(teamArray)
       // Call cycle question to loop over the amount of interns and engineers the user would like to create until they select DONE option
-      
+
       nextMember();
     })
   }
@@ -89,11 +88,25 @@ function start() {
   function engineerQs() {
     inquirer.prompt([
       {
-        type: 'list',
-        name: 'choice',
-        message: 'What team member would you like to make next?',
-        choices: ['Engineer', 'Intern', 'Done']
-      }
+        type: "input",
+        name: "Name",
+        message: "What is the Engineer's name?",
+      },
+      {
+        type: "input",
+        name: "Id",
+        message: "Engineer Id number?",
+      },
+      {
+        type: "input",
+        name: "Email",
+        message: "Engineer email?",
+      },
+      {
+        type: "input",
+        name: "Github",
+        message: "Engineer Github?",
+      },
     ])
     .then(res => {
       // push to team array
@@ -116,11 +129,25 @@ function start() {
   function internQs() {
     inquirer.prompt([
       {
-        type: 'list',
-        name: 'choice',
-        message: 'What team member would you like to make next?',
-        choices: ['Engineer', 'Intern', 'Done']
-      }
+        type: "input",
+        name: "Name",
+        message: "What is the Intern's name?",
+      },
+      {
+        type: "input",
+        name: "Id",
+        message: "Intern Id number?",
+      },
+      {
+        type: "input",
+        name: "Email",
+        message: "Intern email?",
+      },
+      {
+        type: "input",
+        name: "School",
+        message: "Intern school?",
+      },
     ])
     .then(res => {
       // push to team array

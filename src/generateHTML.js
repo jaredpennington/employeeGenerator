@@ -20,6 +20,26 @@ const teamCards = team => {
     `
   }
 
+  const generateEngineer = engineer => {
+    return `
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">${engineer.getName()}</h5>
+    <p class="card-text">
+      ${engineer.getRole()}
+    </p>
+  </div>
+  <div class="card-body">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${engineer.getId()}</li>
+    <li class="list-group-item">${engineer.getEmail()}</li>
+    <li class="list-group-item">${engineer.getGithub()}</li>
+  </ul>
+ </div>
+</div>
+    `
+  }
+
   const cards =[];
 
   cards.push(team
