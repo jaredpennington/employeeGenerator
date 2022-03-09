@@ -1,39 +1,4 @@
-const teamCards = team => {
 
-  const generateManager = manager => {
-    return `
-<div class="card" style="width: 18rem">
-  <div class="card-body">
-    <h5 class="card-title">${manager.getName()}</h5>
-    <p class="card-text">
-      ${manager.getRole()}
-    </p>
-  </div>
-  <div class="card-body">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">${manager.getId()}</li>
-    <li class="list-group-item">${manager.getEmail()}</li>
-    <li class="list-group-item">${manager.getOfficeNumber()}</li>
-  </ul>
- </div>
-</div>
-    `
-  }
-
-  const cards =[];
-
-  cards.push(team
-    .filter(employee => employee.getRole() === "Manager")
-    .map(manager => generateManager(manager))
-    .join('')
-    );
-
-
-    return cards.join('')
-}
-
-function generateHTML(team) {
-    return `
     <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,13 +26,26 @@ function generateHTML(team) {
     <main class="container">
       <section class="row">
       <div class="col-12 d-flex justify-content-center">
-      ${teamCards(team)}
+      
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">sam</h5>
+    <p class="card-text">
+      Manager
+    </p>
+  </div>
+  <div class="card-body">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">1</li>
+    <li class="list-group-item">sam@mail.com</li>
+    <li class="list-group-item">12</li>
+  </ul>
+ </div>
+</div>
+    
       </div>
       </section>
     </main>
   </body>
 </html>
-    `
-}
-
-module.exports = generateHTML;
+    
