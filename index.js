@@ -14,6 +14,7 @@ var fs = require("fs");
 var generateHTML = require("./src/generateHTML.js");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 var teamArray = [];
 
 
@@ -52,9 +53,7 @@ function start() {
       
       const manager = new Manager(res.Name, res.Id, res.Email, res.officeNumber)
       // push the new employee into team array in order to pass it to generateHtml function
-      const engineer = new Engineer(res.Name, res.Id, res.Email, res.Github)
       teamArray.push(manager);
-      console.log(teamArray)
       // Call cycle question to loop over the amount of interns and engineers the user would like to create until they select DONE option
 
       nextMember();
@@ -110,17 +109,9 @@ function start() {
     ])
     .then(res => {
       // push to team array
-      switch(res.choice) {
-        case 'Engineer':
-          engineerQs();
-          break;
-        case 'Intern':
-          internQs();
-          break;
-        default:
-          writeToFile();
-          break;
-      }
+      const engineer = new Engineer(res.Name, res.Id, res.Email, res.Github)
+      // push the new employee into team array in order to pass it to generateHtml function
+      teamArray.push(engineer);
       nextMember();
     })
 
@@ -151,17 +142,9 @@ function start() {
     ])
     .then(res => {
       // push to team array
-      switch(res.choice) {
-        case 'Engineer':
-          engineerQs();
-          break;
-        case 'Intern':
-          internQs();
-          break;
-        default:
-          writeToFile();
-          break;
-      }
+      const intern = new Intern(res.Name, res.Id, res.Email, res.School)
+      // push the new employee into team array in order to pass it to generateHtml function
+      teamArray.push(intern);
       nextMember();
     })
   }
